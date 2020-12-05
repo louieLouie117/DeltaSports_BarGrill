@@ -1,0 +1,17 @@
+body{
+    max-width: 45em;
+    margin: 0 auto;
+    background: whitesmoke;
+}
+
+
+form{
+    display: grid;
+    row-gap: 5px;
+}
+
+.regHeader_container{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    align-items: center;
+}
