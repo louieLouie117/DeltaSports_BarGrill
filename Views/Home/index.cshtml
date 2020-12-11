@@ -1,5 +1,5 @@
 @using DeltaSports_BarGrill.Models
-@model User
+@model dashboardWrapper
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,12 +14,6 @@
 </head>
 
 <body>
-    @* <div class="regHeader_container">
-        <h1>Delta Sports Bar and Grill</h1>
-        <a href="/signin">Sign in.</a>
-
-
-        </div> *@
 
     <header>
         <picture class="headerImage-container">
@@ -159,544 +153,137 @@
     <main>
         <h2 id="MenuTop">Menu</h2>
 
+
+
         <div class="menu-container">
-            <!--Pizza Menu-->
-            <div class="content-container">
-                <div class="block-container">
-                    <div class="block-click"></div>
-                    <h3 id="onClickPizza">Pizza</h3>
+            @foreach (var item in @ViewBag.allFoodCategories)
+            {
+                <!--Pizza Menu-->
+                <div class="content-container">
+                    <div class="block-container">
+                        <div class="block-click"></div>
+                        <h3 id="onClickPizza">@item.CategoryTitle</h3>
+                    </div>
+                    <ul class="allitems-container" id="pizzasMenu">
+                        <li class="item-container">
+                            <div class="item-headding" id="pizzaItem1">
+                                <h4>Chesse Lovers</h4>
+                                <img src="/images/menuDopts.png" alt="" />
+                            </div>
+                            <div class="item-info" id="pizzaItem1Info">
+                                <p>Enjoy a three cheese pizza with traditional red sauce.</p>
+                                <p>$14.99</p>
+                            </div>
+                        </li>
+
+                        <li class="item-container">
+                            <div class="item-headding" id="pizzaItem2">
+                                <h4>Pepperoni</h4>
+                                <img src="/images/menuDopts.png" alt="" />
+                            </div>
+                            <div class="item-info" id="pizzaItem2Info">
+                                <p>
+                                    Get a great taste of pepperoni with traditional red sauce.
+                                </p>
+                                <p>$16.99</p>
+                            </div>
+                        </li>
+
+                        <li class="item-container">
+                            <div class="item-headding" id="pizzaItem3">
+                                <h4>Hawaiian</h4>
+                                <img src="/images/menuDopts.png" alt="" />
+                            </div>
+                            <div class="item-info" id="pizzaItem3Info">
+                                <p>Enjoy sweet pineapple topped with ham.</p>
+                                <p>$16.99</p>
+                            </div>
+                        </li>
+
+                        <li class="item-container">
+                            <div class="item-headding" id="pizzaItem4">
+                                <h4>Spicy Bacon</h4>
+                                <img src="/images/menuDopts.png" alt="" />
+                            </div>
+                            <div class="item-info" id="pizzaItem4Info">
+                                <p>
+                                    Looking for the spicy in your day. Our spicy bacon pizza is
+                                    top with crispy bacon and jalapeno slices.
+                                </p>
+                                <p>$16.99</p>
+                            </div>
+                        </li>
+
+                        <li class="item-container">
+                            <div class="item-headding" id="pizzaItem5">
+                                <h4>Veggie Delta</h4>
+                                <img src="/images/menuDopts.png" alt="" />
+                            </div>
+                            <div class="item-info" id="pizzaItem5Info">
+                                <p>
+                                    Eat a healthy pizza loaded with mushrooms, onions, olives,
+                                    tomato and bell peppers.
+                                </p>
+                                <p>$16.99</p>
+                            </div>
+                        </li>
+
+                        <li class="item-container">
+                            <div class="item-headding" id="pizzaItem6">
+                                <h4>Meat Lovers</h4>
+                                <img src="/images/menuDopts.png" alt="" />
+                            </div>
+                            <div class="item-info" id="pizzaItem6Info">
+                                <p>
+                                    Order a loaded pizza with pepperoni, linguica, ham and
+                                    sausage.
+                                </p>
+                                <p>$19.99</p>
+                            </div>
+                        </li>
+
+                        <li class="item-container">
+                            <div class="item-headding" id="pizzaItem7">
+                                <h4>Combination</h4>
+                                <img src="/images/menuDopts.png" alt="" />
+                            </div>
+                            <div class="item-info" id="pizzaItem7Info">
+                                <p>
+                                    Loaded with pepperoni, ham, sausage, linguica, bell pepper,
+                                    onion, olive, mushrooms and tomatoes.
+                                </p>
+                                <p>$20.99</p>
+                            </div>
+                        </li>
+
+                        <li class="item-container">
+                            <div class="item-headding" id="pizzaItem8">
+                                <h4>BBQ Chicken</h4>
+                                <img src="/images/menuDopts.png" alt="" />
+                            </div>
+                            <div class="item-info" id="pizzaItem8Info">
+                                <p>BBQ sauce, chicken, green onion, and red onion.</p>
+                                <p>$16.99</p>
+                            </div>
+                        </li>
+
+                        <li class="item-container">
+                            <div class="item-headding" id="pizzaItem9">
+                                <h4>BBQ Pulled Pork</h4>
+                                <img src="/images/menuDopts.png" alt="" />
+                            </div>
+                            <div class="item-info" id="pizzaItem9Info">
+                                <p>
+                                    BBQ sauce, pulled pork, red onion, green chilli, and tomato.
+                                </p>
+                                <p>$20.99</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <ul class="allitems-container" id="pizzasMenu">
-                    <li class="item-container">
-                        <div class="item-headding" id="pizzaItem1">
-                            <h4>Chesse Lovers</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="pizzaItem1Info">
-                            <p>Enjoy a three cheese pizza with traditional red sauce.</p>
-                            <p>$14.99</p>
-                        </div>
-                    </li>
+                <!--Sandwiches Menu-->
+            }
 
-                    <li class="item-container">
-                        <div class="item-headding" id="pizzaItem2">
-                            <h4>Pepperoni</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="pizzaItem2Info">
-                            <p>
-                                Get a great taste of pepperoni with traditional red sauce.
-                            </p>
-                            <p>$16.99</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="pizzaItem3">
-                            <h4>Hawaiian</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="pizzaItem3Info">
-                            <p>Enjoy sweet pineapple topped with ham.</p>
-                            <p>$16.99</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="pizzaItem4">
-                            <h4>Spicy Bacon</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="pizzaItem4Info">
-                            <p>
-                                Looking for the spicy in your day. Our spicy bacon pizza is
-                                top with crispy bacon and jalapeno slices.
-                            </p>
-                            <p>$16.99</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="pizzaItem5">
-                            <h4>Veggie Delta</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="pizzaItem5Info">
-                            <p>
-                                Eat a healthy pizza loaded with mushrooms, onions, olives,
-                                tomato and bell peppers.
-                            </p>
-                            <p>$16.99</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="pizzaItem6">
-                            <h4>Meat Lovers</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="pizzaItem6Info">
-                            <p>
-                                Order a loaded pizza with pepperoni, linguica, ham and
-                                sausage.
-                            </p>
-                            <p>$19.99</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="pizzaItem7">
-                            <h4>Combination</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="pizzaItem7Info">
-                            <p>
-                                Loaded with pepperoni, ham, sausage, linguica, bell pepper,
-                                onion, olive, mushrooms and tomatoes.
-                            </p>
-                            <p>$20.99</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="pizzaItem8">
-                            <h4>BBQ Chicken</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="pizzaItem8Info">
-                            <p>BBQ sauce, chicken, green onion, and red onion.</p>
-                            <p>$16.99</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="pizzaItem9">
-                            <h4>BBQ Pulled Pork</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="pizzaItem9Info">
-                            <p>
-                                BBQ sauce, pulled pork, red onion, green chilli, and tomato.
-                            </p>
-                            <p>$20.99</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <!--Sandwiches Menu-->
-            <section class="content-container">
-                <div class="block-container">
-                    <div class="block-click"></div>
-                    <h3 id="onClickSandwiches">Sandwiches</h3>
-                </div>
-                <ul class="allitems-container" id="sandwichesMenu">
-                    <li class="item-container">
-                        <div class="item-headding" id="sandwichItem1">
-                            <h4>Prime Rib Dip</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="sandwichItem1Info">
-                            <p>
-                                Tender Sliced Prime Rib on top of a roll served with a side of
-                                Au Jus. with cheese +$1.00
-                            </p>
-                            <p>$12.95</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="sandwichItem2">
-                            <h4>Delta Cheese Steak</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="sandwichItem2Info">
-                            <p>
-                                Grilled thinly sliced Beef Steak or Chicken with grilled onion
-                                and bell peppers, topped with jack cheese.
-                            </p>
-                            <p>$11.99</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="sandwichItem3">
-                            <h4>Delta BLT</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="sandwichItem3Info">
-                            <p>
-                                Crispy bacon, lettuce, tomato and mayonnaise on toasted white
-                                or wheat bread.
-                            </p>
-                            <p>$8.95</p>
-                        </div>
-                    </li>
-                    <li class="item-container">
-                        <div class="item-headding" id="sandwichItem4">
-                            <h4>Delta Club</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="sandwichItem4Info">
-                            <p>
-                                Triple Decker Sandwich of sliced ham, turkey, bacon, lettuce,
-                                tomato, mayonnaise on toasted white or wheat bread.
-                            </p>
-                            <p>$10.95</p>
-                        </div>
-                    </li>
-                    <li class="item-container">
-                        <div class="item-headding" id="sandwichItem5">
-                            <h4>Ruben</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="sandwichItem5Info">
-                            <p>
-                                Corned beef, Sauerkraut, thousand island dressing and jack
-                                cheese on rye bread.
-                            </p>
-                            <p>$11.95</p>
-                        </div>
-                    </li>
-                    <li class="item-container">
-                        <div class="item-headding" id="sandwichItem6">
-                            <h4>Bacon & Ranch Chicken</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="sandwichItem6Info">
-                            <p>
-                                Grilled or breaded and fried chicken breast topped with bacon
-                                and ranch dressing and served on a bun.
-                            </p>
-                            <p>$12.95</p>
-                        </div>
-                    </li>
-                    <li class="item-container">
-                        <div class="item-headding" id="sandwichItem7">
-                            <h4>Steak Sandwich</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="sandwichItem7Info">
-                            <p>Tender steak sandwich served with fries.</p>
-                            <p>$9.95</p>
-                        </div>
-                    </li>
-                </ul>
-            </section>
-            <!--Appetizer Menu-->
-            <section class="content-container large-colunm">
-                <div class="block-container">
-                    <div class="block-click"></div>
-                    <h3 id="onClickAppetizers">Appetizers</h3>
-                </div>
-
-                <ul class="allitems-container" id="appetizersMenu">
-                    <li class="item-container">
-                        <div class="item-headding" id="appetizerItem1">
-                            <h4>S&A Dip</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="appetizerItem1Info">
-                            <p>
-                                Get our spinach and artichoke dip served with tortilla chips
-                                or bread.
-                            </p>
-                            <p>$9.99</p>
-                        </div>
-                    </li>
-                    <li class="item-container">
-                        <div class="item-headding" id="appetizerItem2">
-                            <h4>Nachos</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="appetizerItem2Info">
-                            <p>
-                                Available in Tender slow-roasted pork or seasoned ground beef.
-                                Served over tortilla chips, garnished with green onions,
-                                tomatoes, olives, jalapenos, cheese and sour cream.
-                            </p>
-                            <p>$9.99</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="appetizerItem3">
-                            <h4>Mozzarella Sticks</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="appetizerItem3Info">
-                            <p>Served with a marinara dipping sauce.</p>
-                            <p>$8.99</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="appetizerItem4">
-                            <h4>Onion Rings</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="appetizerItem4Info">
-                            <p>Handed breaded onion rings</p>
-                            <p>$8.99</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="appetizerItem5">
-                            <h4>Potato Skins</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="appetizerItem5Info">
-                            <p>Served with bacon, cheese, green onions and sour cream.</p>
-                            <p>$8.99</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="appetizerItem6">
-                            <h4>Stuffed Mushrooms</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="appetizerItem6Info">
-                            <p>
-                                Mushrooms stuffed with cream cheese, spinach, artichokes, and
-                                cheese.
-                            </p>
-                            <p>$9.99</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="appetizerItem7">
-                            <h4>Chicken Wings</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="appetizerItem7Info">
-                            <p>
-                                Ge our 5 peace chicken wings smothered in your choice of sauce
-                                Buffalo, BBQ, Sweet Chile, Golden Serrano BBQ, or Teriyaki.
-                                Full order of 10 peace available form 9.99.
-                            </p>
-                            <p>$6.99</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="appetizerItem8">
-                            <h4>Calamari</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="appetizerItem8Info">
-                            <p>
-                                Fresh fried calamari served with a marinara dipping sauce.
-                            </p>
-                            <p>$9.99</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="appetizerItem9">
-                            <h4>Appetizer Combo</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="appetizerItem9Info">
-                            <p>
-                                Get 3 potato skin, 3 mozzarella sticks, 3 Jalapeno poppers, 3
-                                chicken tenders.
-                            </p>
-                            <p>$14.99</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="appetizerItem10">
-                            <h4>Fish & Chips</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="appetizerItem10Info">
-                            <p>Beer batter fried cod served with fries.</p>
-                            <p>$15.99</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="appetizerItem11">
-                            <h4>Chicken Tenders</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="appetizerItem11Info">
-                            <p>Breaded chicken tenders with fries.</p>
-                            <p>$10.99</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="appetizerItem12">
-                            <h4>BBQ Pulled Pork Sliders</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="appetizerItem12Info">
-                            <p>
-                                Tender slow-roasted pork on slider buns with barbecue sauce.
-                            </p>
-                            <p>$9.99</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="appetizerItem13">
-                            <h4>Jalapeno Poppers</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="appetizerItem13Info">
-                            <p>Cheddar or cream cheese.</p>
-                            <p>$6.99</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="appetizerItem14">
-                            <h4>French Fries</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="appetizerItem14Info">
-                            <p>Home style seasoned or garlic fires.</p>
-                            <p>$4.50</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="appetizerItem15">
-                            <h4>Chips & Salsa</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="appetizerItem15Info">
-                            <p>Tortilla chips with fresh salsa.</p>
-                            <p>$4.99</p>
-                        </div>
-                    </li>
-                </ul>
-            </section>
-            <!--Salads Menu-->
-            <section class="content-container">
-                <div class="block-container">
-                    <div class="block-click"></div>
-                    <h3 id="onClickSalads">Salads</h3>
-                </div>
-                <ul class="allitems-container" id="saladsMenu">
-                    <li class="item-container">
-                        <div class="item-headding" id="saladItem1">
-                            <h4>House Salad</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="saladItem1Info">
-                            <p>
-                                Iceberg lettuce bland, cucumbers, tomatoes, red onions and
-                                croutons.
-                            </p>
-                            <p>$4.99</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="saladItem2">
-                            <h4>Caesar Salad</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="saladItem2Info">
-                            <p>Romaine lettuce, Caesar dressing and croutons.</p>
-                            <p>$6.99</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="saladItem3">
-                            <h4>Chef Salad</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="saladItem3Info">
-                            <p>
-                                Iceberg lettuce blend, turkey, ham, hard boiled egg, tomatoes,
-                                onions and cheddar cheese.
-                            </p>
-                            <p>$9.99</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="saladItem4">
-                            <h4>Chicken Salad</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="saladItem4Info">
-                            <p>House or Caesar Salad.</p>
-                            <p>$8.99</p>
-                        </div>
-                    </li>
-                </ul>
-            </section>
-            <!--Burgers Menu-->
-            <section class="content-container">
-                <div class="block-container">
-                    <div class="block-click"></div>
-                    <h3 id="onClickBurgers">Burgers</h3>
-                </div>
-                <ul class="allitems-container" id="burgersMenu">
-                    <li class="item-container">
-                        <div class="item-headding" id="burgerItem1">
-                            <h4>Patty Melt</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="burgerItem1Info">
-                            <p>
-                                Grilled 1/2lb patty with Sliced Rye, Grilled Onion, Swiss
-                                Cheese.
-                            </p>
-                            <p>$12.95</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="burgerItem2">
-                            <h4>Cheese Burger</h4>
-                            <img src="/images/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="burgerItem2Info">
-                            <p>
-                                Get a great taste of pepperoni with traditional red sauce.
-                            </p>
-                            <p>$10.95</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="burgerItem3">
-                            <h4>Teriyaki Burger</h4>
-                            <img src="Assests/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="burgerItem3Info">
-                            <p>
-                                Grilled Teriyaki glazed beef patty served with sauteed
-                                mushrooms and topped with white american cheese.
-                            </p>
-                            <p>$11.95</p>
-                        </div>
-                    </li>
-
-                    <li class="item-container">
-                        <div class="item-headding" id="burgerItem4">
-                            <h4>Rodeo Burger</h4>
-                            <img src="Assests/menuDopts.png" alt="" />
-                        </div>
-                        <div class="item-info" id="burgerItem4Info">
-                            <p>
-                                Grilled beef patty topped with crispy bacon, fried onion
-                                strings, cheddar cheese and bbq sauce.
-                            </p>
-                            <p>$12.95</p>
-                        </div>
-                    </li>
-                </ul>
-            </section>
         </div>
     </main>
 
