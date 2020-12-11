@@ -1,13 +1,33 @@
+input{
+    font: 1em sans-serif;
+    padding: 3px;
+}
+
+select{
+    font: 1em sans-serif;
+    padding: 3px;
+}
+
 .newCategory-container{
 
     width: 400px;
   
 }
 
+.newItem-container{
+    width: 400px;
+
+}
 
 
 .newCategory-container ul li{
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     align-items: center;
+}
+
+
+.newItem-container form {
+    display: grid;
+    row-gap: 10px;
 }

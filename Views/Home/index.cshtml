@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hope</title>
+    <title>Delta Sports Bar and Grill</title>
     <link rel="stylesheet" href="~/css/HomePage.css">
     <script src="/scritps/script.js" async=""></script>
 
@@ -152,9 +152,6 @@
 
     <main>
         <h2 id="MenuTop">Menu</h2>
-
-
-
         <div class="menu-container">
             @foreach (var item in @ViewBag.allFoodCategories)
             {
@@ -163,128 +160,42 @@
                     <div class="block-container">
                         <div class="block-click"></div>
                         <h3 id="onClickPizza">@item.CategoryTitle</h3>
+                        @* <h3 id="onClickPizza">@item.FoodCategoryId</h3> *@
+
                     </div>
-                    <ul class="allitems-container" id="pizzasMenu">
-                        <li class="item-container">
-                            <div class="item-headding" id="pizzaItem1">
-                                <h4>Chesse Lovers</h4>
-                                <img src="/images/menuDopts.png" alt="" />
-                            </div>
-                            <div class="item-info" id="pizzaItem1Info">
-                                <p>Enjoy a three cheese pizza with traditional red sauce.</p>
-                                <p>$14.99</p>
-                            </div>
-                        </li>
+                
+                    @* <ul class="allitems-container" id="pizzasMenu"> *@
+                    <ul class="allitems-container" >
 
-                        <li class="item-container">
-                            <div class="item-headding" id="pizzaItem2">
-                                <h4>Pepperoni</h4>
-                                <img src="/images/menuDopts.png" alt="" />
-                            </div>
-                            <div class="item-info" id="pizzaItem2Info">
-                                <p>
-                                    Get a great taste of pepperoni with traditional red sauce.
-                                </p>
-                                <p>$16.99</p>
-                            </div>
-                        </li>
+                     @foreach (var subItem in @ViewBag.allFoodItems)
+                     {
+                            @if (@item.FoodCategoryId == @subItem.FoodCategoryId)
+                            {
+                                <li class="item-container">
+                                    <div class="item-headding" id="pizzaItem1">
+                                        <h4>@subItem.ItemTitle</h4>
+                                        @* <h4>@subItem.FoodCategoryId</h4> *@
+                                        <img src="/images/menuDopts.png" alt="" />
+                                    </div>
+                                    <div class="item-info" id="pizzaItem1Info">
+                                        <p>@subItem.ItemDescription</p>
+                                        <p>@subItem.ItemPrice</p>
 
-                        <li class="item-container">
-                            <div class="item-headding" id="pizzaItem3">
-                                <h4>Hawaiian</h4>
-                                <img src="/images/menuDopts.png" alt="" />
-                            </div>
-                            <div class="item-info" id="pizzaItem3Info">
-                                <p>Enjoy sweet pineapple topped with ham.</p>
-                                <p>$16.99</p>
-                            </div>
-                        </li>
+                                    </div>
 
-                        <li class="item-container">
-                            <div class="item-headding" id="pizzaItem4">
-                                <h4>Spicy Bacon</h4>
-                                <img src="/images/menuDopts.png" alt="" />
-                            </div>
-                            <div class="item-info" id="pizzaItem4Info">
-                                <p>
-                                    Looking for the spicy in your day. Our spicy bacon pizza is
-                                    top with crispy bacon and jalapeno slices.
-                                </p>
-                                <p>$16.99</p>
-                            </div>
-                        </li>
+                                </li>
+                            }
 
-                        <li class="item-container">
-                            <div class="item-headding" id="pizzaItem5">
-                                <h4>Veggie Delta</h4>
-                                <img src="/images/menuDopts.png" alt="" />
-                            </div>
-                            <div class="item-info" id="pizzaItem5Info">
-                                <p>
-                                    Eat a healthy pizza loaded with mushrooms, onions, olives,
-                                    tomato and bell peppers.
-                                </p>
-                                <p>$16.99</p>
-                            </div>
-                        </li>
+                        }
 
-                        <li class="item-container">
-                            <div class="item-headding" id="pizzaItem6">
-                                <h4>Meat Lovers</h4>
-                                <img src="/images/menuDopts.png" alt="" />
-                            </div>
-                            <div class="item-info" id="pizzaItem6Info">
-                                <p>
-                                    Order a loaded pizza with pepperoni, linguica, ham and
-                                    sausage.
-                                </p>
-                                <p>$19.99</p>
-                            </div>
-                        </li>
+                        </ul>
 
-                        <li class="item-container">
-                            <div class="item-headding" id="pizzaItem7">
-                                <h4>Combination</h4>
-                                <img src="/images/menuDopts.png" alt="" />
-                            </div>
-                            <div class="item-info" id="pizzaItem7Info">
-                                <p>
-                                    Loaded with pepperoni, ham, sausage, linguica, bell pepper,
-                                    onion, olive, mushrooms and tomatoes.
-                                </p>
-                                <p>$20.99</p>
-                            </div>
-                        </li>
-
-                        <li class="item-container">
-                            <div class="item-headding" id="pizzaItem8">
-                                <h4>BBQ Chicken</h4>
-                                <img src="/images/menuDopts.png" alt="" />
-                            </div>
-                            <div class="item-info" id="pizzaItem8Info">
-                                <p>BBQ sauce, chicken, green onion, and red onion.</p>
-                                <p>$16.99</p>
-                            </div>
-                        </li>
-
-                        <li class="item-container">
-                            <div class="item-headding" id="pizzaItem9">
-                                <h4>BBQ Pulled Pork</h4>
-                                <img src="/images/menuDopts.png" alt="" />
-                            </div>
-                            <div class="item-info" id="pizzaItem9Info">
-                                <p>
-                                    BBQ sauce, pulled pork, red onion, green chilli, and tomato.
-                                </p>
-                                <p>$20.99</p>
-                            </div>
-                        </li>
-                    </ul>
                 </div>
-                <!--Sandwiches Menu-->
             }
 
         </div>
+
+           
     </main>
 
     <footer></footer>

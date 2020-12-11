@@ -1,0 +1,34 @@
+@using DeltaSports_BarGrill.Models
+@model FoodItem
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Name to your dashboard.</title>
+</head>
+
+<body>
+    <div>
+        <h1>Add new item</h1>
+        <form asp-action="CreateItem" asp-controller="Home" method="Post">
+            <input asp-for="ItemTitle" placeholder="Name:">
+            <input asp-for="ItemPrice" placeholder="Price:$00.00" type="number">
+            <textarea asp-for="ItemDescription" placeholder="description" cols="30" rows="10"></textarea>
+
+            <select asp-for="FoodCategoryId">
+                @foreach (var item in @ViewBag.allFoodCategories)
+                {
+                    <option value="@item.FoodCategoryId">@item.CategoryTitle</option>
+                }</select>
+
+
+
+                <input type="submit" value="save item">
+            </form>
+        </div>
+    </body>
+
+    </html>

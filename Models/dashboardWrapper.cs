@@ -6,12 +6,8 @@ namespace DeltaSports_BarGrill.Models
 {
     public class dashboardWrapper
     {
-
         public FoodCategory FoodCategory { get; set; }
         public FoodItem FoodItem { get; set; }
-
-
-
 
     }
 }
