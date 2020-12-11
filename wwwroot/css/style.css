@@ -1,11 +1,11 @@
 body{
-    max-width: 45em;
-    margin: 0 auto;
+    margin: 0;
     background: whitesmoke;
 }
 
 
 form{
+    width: 400px;
     display: grid;
     row-gap: 5px;
 }
@@ -14,4 +14,42 @@ form{
     display: grid;
     grid-template-columns: 4fr 1fr;
     align-items: center;
+}
+
+header{
+    height: 55vh;
+    margin: 0 auto;
+    justify-self: center;
+
+}
+
+
+
+
+.login-container{
+    display: grid;
+    background: white;
+    margin: 0 auto;
+    padding: 40px;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.371);
+    margin-top: 90px;
+    /* amazing */
+    resize: both;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    box-shadow: 0 0 20px -10px hsl(211, 98%, 41%);
+    display: grid;
+    align-items: center;
+    background: white;
+    justify-content: center;
+    width: 400px;
+
+}
+
+.login-container form input{
+    font: 1em sans-serif;
+    height: 40px;
 }

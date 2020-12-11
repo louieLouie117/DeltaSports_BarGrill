@@ -13,30 +13,28 @@
 </head>
 
 <body>
-    <h1>Success!</h1>
+    <h1>Successfuly loged in</h1>
     <a href="/logout">Logout</a>
 
     <div class="newCategory-container">
         <h1>Add new Categroy</h1>
         <partial name="foodCategoryParcial" model="@Model.FoodCategory">
-            <ul>
-                @foreach (var item in @ViewBag.allFoodCategories)
-                {
-                    <li>
-                        <p>@item.CategoryTitle</p>
-                        <a href="/delete/@item.FoodCategoryId"><button>delete</button></a>
-                        <a href="/update/@item.FoodCategoryId"><button>edit</button></a>
-
-                    </li>
-                }
-            </ul>
     </div>
+
+
 
     <div class="newItem-container">
         <partial name="foodItemPartial" model="@Model.FoodItem">
 
-
     </div>
+
+
+
+
+
+
+
+
 
 </body>
 

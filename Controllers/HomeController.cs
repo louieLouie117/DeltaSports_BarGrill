@@ -68,13 +68,14 @@ namespace DeltaSports_BarGrill.Controllers
         public IActionResult dashboard()
         {
             // block pages is not in session 
-            // if (HttpContext.Session.GetInt32("UserId") == null)
-            // {
-            //     return RedirectToAction("index");
-            // }
+            if (HttpContext.Session.GetInt32("UserId") == null)
+            {
+                return RedirectToAction("index");
+            }
 
             dashboardWrapper WMod = new dashboardWrapper();
 
+            ViewBag.allFoodItems = _context.foodItems.ToList();
             ViewBag.allFoodCategories = _context.FoodCategories.ToList();
             // ViewBag.allFoodCategories = _context.FoodCategories.Include(d => d.FoodItems).ToList();
 
@@ -86,7 +87,7 @@ namespace DeltaSports_BarGrill.Controllers
         // -----------------------------------------------------------end
 
 
-        // CRUD opporations for Categories
+        // CRUD opporations for Categories-------------------------------------
 
         [HttpPost("CreateCategory")]
         public IActionResult CreateCategory(FoodCategory FromForm)
@@ -118,8 +119,7 @@ namespace DeltaSports_BarGrill.Controllers
         }
 
 
-        // CRUD opporations for items
-
+        // CRUD opporations for items------------------------------------
 
         [HttpPost("CreateItem")]
         public IActionResult CreateItem(FoodItem FromForm)
@@ -128,6 +128,25 @@ namespace DeltaSports_BarGrill.Controllers
 
             _context.Add(FromForm);
             _context.SaveChanges();
+
+            return RedirectToAction("dashboard");
+        }
+
+
+
+        [HttpGet("deleteItem/{FoodItemId}")]
+
+        public IActionResult deleteItem(int FoodItemId)
+        {
+            System.Console.WriteLine("delete button was click");
+
+            FoodItem getFoodItem = _context.foodItems
+            .SingleOrDefault(fc => fc.FoodItemId == FoodItemId);
+
+            _context.foodItems.Remove(getFoodItem);
+            _context.SaveChanges();
+
+
 
             return RedirectToAction("dashboard");
         }

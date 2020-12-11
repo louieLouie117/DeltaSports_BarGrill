@@ -8,26 +8,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome Name to your dashboard.</title>
+    <link rel="stylesheet" href="~/css/Dashboard.css">
+
 </head>
 
 <body>
     <div>
-        <h1>Add new item</h1>
-        <form asp-action="CreateItem" asp-controller="Home" method="Post">
-            <input asp-for="ItemTitle" placeholder="Name:">
-            <input asp-for="ItemPrice" placeholder="Price:$00.00" type="number">
-            <textarea asp-for="ItemDescription" placeholder="description" cols="30" rows="10"></textarea>
+   
 
-            <select asp-for="FoodCategoryId">
+
+    <div class="allCategories-container">
+         @foreach (var item in @ViewBag.allFoodCategories)
+            {
+        <ul>
+           
+                
+                <li>
+              
+                    <div class="options-container">
+                         <h1>@item.CategoryTitle</h1>
+                        <a href="/delete/@item.FoodCategoryId"><button>delete</button></a>
+                        <a href="/update/@item.FoodCategoryId"><button>edit</button></a>
+                    </div>
+
+                        <h2>+ new item to  category</h2>
+
+                    <form asp-action="CreateItem" asp-controller="Home" method="Post">
+                        <input asp-for="ItemTitle" placeholder="Name:">
+                        <input asp-for="ItemPrice" placeholder="Price:" type="number">
+                        <input asp-for="ItemDescription" placeholder="description"></input>
+                        <input asp-for="FoodCategoryId" value="@item.FoodCategoryId" type="hidden">
+
+
+            @* <select asp-for="FoodCategoryId">
                 @foreach (var item in @ViewBag.allFoodCategories)
                 {
                     <option value="@item.FoodCategoryId">@item.CategoryTitle</option>
-                }</select>
+                }</select> *@
 
 
-
-                <input type="submit" value="save item">
+            <input type="submit" value="save item">
+                
             </form>
+   
+         
+                    <div class="foodItem-container">
+                        <ul>
+
+                            @foreach (var subItem in @ViewBag.allFoodItems)
+                            {
+                                   @if (@item.FoodCategoryId == @subItem.FoodCategoryId)
+                                    {
+
+                                    <li>
+                                        <h4>@subItem.ItemTitle</h4>
+
+                                        <div class="item-info" id="pizzaItem1Info">
+                                            <p>@subItem.ItemDescription</p>
+                                            <p>@subItem.ItemPrice</p>
+
+                                        </div>
+
+                                        <div class="options-container">
+                                            <p>options:</p>
+                                            <a href="/deleteItem/@subItem.FoodItemId"><button>remove</button></a>
+                                            <a href="#"><button>edit</button></a>
+                                        </div>
+
+                                    </li>
+                                    }
+                            }
+
+                        </ul>
+                    </div>
+                </li>
+        </ul>
+            }
+
+
+    </div>
         </div>
     </body>
 
