@@ -38,11 +38,15 @@ namespace DeltaSports_BarGrill.Controllers
         public IActionResult index()
         {
 
-
             dashboardWrapper WMod = new dashboardWrapper();
 
-            ViewBag.allFoodCategories = _context.FoodCategories.ToList();
+
+            // ViewBag.allFoodCategories = _context.FoodCategories.ToList();
+            ViewBag.allFoodItems = _context.foodItems.ToList();
+
+            ViewBag.allFoodCategories = _context.FoodCategories.Include(d => d.FoodItems).ToList();
             return View("index", WMod);
+
         }
 
 
@@ -63,7 +67,7 @@ namespace DeltaSports_BarGrill.Controllers
         [HttpGet("dashboard")]
         public IActionResult dashboard()
         {
-            // block pages is not in session
+            // block pages is not in session 
             // if (HttpContext.Session.GetInt32("UserId") == null)
             // {
             //     return RedirectToAction("index");
@@ -72,6 +76,8 @@ namespace DeltaSports_BarGrill.Controllers
             dashboardWrapper WMod = new dashboardWrapper();
 
             ViewBag.allFoodCategories = _context.FoodCategories.ToList();
+            // ViewBag.allFoodCategories = _context.FoodCategories.Include(d => d.FoodItems).ToList();
+
 
 
             return View("dashboard", WMod);
@@ -111,6 +117,20 @@ namespace DeltaSports_BarGrill.Controllers
             return RedirectToAction("dashboard");
         }
 
+
+        // CRUD opporations for items
+
+
+        [HttpPost("CreateItem")]
+        public IActionResult CreateItem(FoodItem FromForm)
+        {
+            System.Console.WriteLine("careate button was click");
+
+            _context.Add(FromForm);
+            _context.SaveChanges();
+
+            return RedirectToAction("dashboard");
+        }
 
 
         // Processing Registration and Login-------------------------------------------------

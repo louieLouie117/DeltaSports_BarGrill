@@ -19,7 +19,7 @@ document.getElementById("onClickBurgers").addEventListener("click", showBurgers)
 
 //Functions for menu------>
 function showPizzas(e) {
-    document.getElementById("pizzasMenu").style.display = "grid";
+    document.getElementById("@item.FoodCategoryId").style.display = "grid";
     document.getElementById("sandwichesMenu").style.display = "none";
     document.getElementById("appetizersMenu").style.display = "none";
     document.getElementById("saladsMenu").style.display = "none";

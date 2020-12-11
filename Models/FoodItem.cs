@@ -25,8 +25,9 @@ namespace DeltaSports_BarGrill.Models
 
 
         [Display]
+        [Range(0, 999.99)]
         [Required(ErrorMessage = "Can not be empty")]
-        [MinLength(2, ErrorMessage = "That is to short")]
+        // [MinLength(2, ErrorMessage = "That is to short")]
         public string ItemPrice { get; set; }
 
 
