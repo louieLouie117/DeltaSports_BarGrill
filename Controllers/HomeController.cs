@@ -28,7 +28,7 @@ namespace DeltaSports_BarGrill.Controllers
         [HttpGet("registration")]
         public IActionResult gotoRegistration()
         {
-            return RedirectToAction("index");
+            return RedirectToAction("reg");
         }
 
         // -----------------------------------------------------------end
@@ -37,7 +37,19 @@ namespace DeltaSports_BarGrill.Controllers
         [HttpGet("")]
         public IActionResult index()
         {
-            return View("index");
+
+
+            dashboardWrapper WMod = new dashboardWrapper();
+
+            ViewBag.allFoodCategories = _context.FoodCategories.ToList();
+            return View("index", WMod);
+        }
+
+
+        [HttpGet("reg")]
+        public IActionResult reg()
+        {
+            return View("reg");
         }
 
 
@@ -52,14 +64,53 @@ namespace DeltaSports_BarGrill.Controllers
         public IActionResult dashboard()
         {
             // block pages is not in session
-            if (HttpContext.Session.GetInt32("UserId") == null)
-            {
-                return RedirectToAction("index");
-            }
+            // if (HttpContext.Session.GetInt32("UserId") == null)
+            // {
+            //     return RedirectToAction("index");
+            // }
 
-            return View("dashboard");
+            dashboardWrapper WMod = new dashboardWrapper();
+
+            ViewBag.allFoodCategories = _context.FoodCategories.ToList();
+
+
+            return View("dashboard", WMod);
+
         }
         // -----------------------------------------------------------end
+
+
+        // CRUD opporations for Categories
+
+        [HttpPost("CreateCategory")]
+        public IActionResult CreateCategory(FoodCategory FromForm)
+        {
+            System.Console.WriteLine("careate button was click");
+            System.Console.WriteLine("Category careted:", FromForm);
+
+            _context.Add(FromForm);
+            _context.SaveChanges();
+
+            return RedirectToAction("dashboard");
+        }
+
+        [HttpGet("delete/{FoodCategoryId}")]
+
+        public IActionResult delete(int FoodCategoryId)
+        {
+            System.Console.WriteLine("delete button was click");
+
+            FoodCategory GetFoodCategory = _context.FoodCategories
+            .SingleOrDefault(fc => fc.FoodCategoryId == FoodCategoryId);
+
+            _context.FoodCategories.Remove(GetFoodCategory);
+            _context.SaveChanges();
+
+
+
+            return RedirectToAction("dashboard");
+        }
+
 
 
         // Processing Registration and Login-------------------------------------------------
