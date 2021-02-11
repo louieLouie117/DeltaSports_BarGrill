@@ -1,0 +1,119 @@
+input{
+    font: 1em sans-serif;
+    padding: 3px;
+}
+
+h2{
+    margin: none;
+}
+
+select{
+    font: 1em sans-serif;
+    padding: 3px;
+}
+
+
+ul{
+    padding: none;
+    list-style: none;
+    margin: 0;
+}
+
+li{
+    padding: none;
+    margin: 0;
+}
+
+.newCategory-container{
+    width: 400px;
+  
+}
+
+.allCategories-container{
+    background: whitesmoke;
+    margin-top: 40px;
+    padding: 20px;
+    
+
+
+}
+
+.allCategories-container>ul>li{
+    background: white;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.371);
+    display: grid;
+    margin-bottom: 40px;
+    padding: 40px;
+}
+
+
+
+.options-container{
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr;
+    align-items: center;
+    width: 300px;
+}
+
+.newItem-container form{
+    padding:10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) 5fr 1fr;
+    column-gap: 20px;
+    align-items: center;
+
+}
+
+.newItem-container form input{
+    font: 1em sans-serif;
+    height: 30px;
+
+}
+
+
+
+.newItem-container form textarea{
+    width: auto;
+    height: 40px;
+}
+
+
+
+.newCategory-container>ul>li{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    align-items: center;
+}
+
+
+.newItem-container form {
+    display: grid;
+    row-gap: 10px;
+}
+
+
+.foodItem-container ul {
+    padding: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 15px;
+    row-gap: 10px;
+
+}
+
+.foodItem-container>ul>li {
+    background: white;
+    border-top: 23px solid orangered;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.111);
+
+    padding: 20px;
+    
+
+}
+
+.foodItem-container>ul>li>h4{
+    font: 1.5em sans-serif;
+    margin: 0;
+
+    }
+

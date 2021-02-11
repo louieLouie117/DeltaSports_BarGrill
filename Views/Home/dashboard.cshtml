@@ -1,5 +1,5 @@
 @using DeltaSports_BarGrill.Models
-@model User
+@model dashboardWrapper
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,11 +8,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome Name to your dashboard.</title>
+    <link rel="stylesheet" href="~/css/Dashboard.css">
+
 </head>
 
 <body>
-    <h1>Success!</h1>
+    <h1>Successfuly loged in</h1>
     <a href="/logout">Logout</a>
+
+    <div class="newCategory-container">
+        <h1>Add new Categroy</h1>
+        <partial name="foodCategoryParcial" model="@Model.FoodCategory">
+    </div>
+
+
+
+    <div class="newItem-container">
+        <partial name="foodItemPartial" model="@Model.FoodItem">
+
+    </div>
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>

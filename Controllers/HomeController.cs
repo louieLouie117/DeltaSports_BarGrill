@@ -28,7 +28,7 @@ namespace DeltaSports_BarGrill.Controllers
         [HttpGet("registration")]
         public IActionResult gotoRegistration()
         {
-            return RedirectToAction("index");
+            return RedirectToAction("reg");
         }
 
         // -----------------------------------------------------------end
@@ -37,7 +37,23 @@ namespace DeltaSports_BarGrill.Controllers
         [HttpGet("")]
         public IActionResult index()
         {
-            return View("index");
+
+            dashboardWrapper WMod = new dashboardWrapper();
+
+
+            // ViewBag.allFoodCategories = _context.FoodCategories.ToList();
+            ViewBag.allFoodItems = _context.foodItems.ToList();
+
+            ViewBag.allFoodCategories = _context.FoodCategories.Include(d => d.FoodItems).ToList();
+            return View("index", WMod);
+
+        }
+
+
+        [HttpGet("reg")]
+        public IActionResult reg()
+        {
+            return View("reg");
         }
 
 
@@ -51,15 +67,89 @@ namespace DeltaSports_BarGrill.Controllers
         [HttpGet("dashboard")]
         public IActionResult dashboard()
         {
-            // block pages is not in session
+            // block pages is not in session 
             if (HttpContext.Session.GetInt32("UserId") == null)
             {
                 return RedirectToAction("index");
             }
 
-            return View("dashboard");
+            dashboardWrapper WMod = new dashboardWrapper();
+
+            ViewBag.allFoodItems = _context.foodItems.ToList();
+            ViewBag.allFoodCategories = _context.FoodCategories.ToList();
+            // ViewBag.allFoodCategories = _context.FoodCategories.Include(d => d.FoodItems).ToList();
+
+
+
+            return View("dashboard", WMod);
+
         }
         // -----------------------------------------------------------end
+
+
+        // CRUD opporations for Categories-------------------------------------
+
+        [HttpPost("CreateCategory")]
+        public IActionResult CreateCategory(FoodCategory FromForm)
+        {
+            System.Console.WriteLine("careate button was click");
+            System.Console.WriteLine("Category careted:", FromForm);
+
+            _context.Add(FromForm);
+            _context.SaveChanges();
+
+            return RedirectToAction("dashboard");
+        }
+
+        [HttpGet("delete/{FoodCategoryId}")]
+
+        public IActionResult delete(int FoodCategoryId)
+        {
+            System.Console.WriteLine("delete button was click");
+
+            FoodCategory GetFoodCategory = _context.FoodCategories
+            .SingleOrDefault(fc => fc.FoodCategoryId == FoodCategoryId);
+
+            _context.FoodCategories.Remove(GetFoodCategory);
+            _context.SaveChanges();
+
+
+
+            return RedirectToAction("dashboard");
+        }
+
+
+        // CRUD opporations for items------------------------------------
+
+        [HttpPost("CreateItem")]
+        public IActionResult CreateItem(FoodItem FromForm)
+        {
+            System.Console.WriteLine("careate button was click");
+
+            _context.Add(FromForm);
+            _context.SaveChanges();
+
+            return RedirectToAction("dashboard");
+        }
+
+
+
+        [HttpGet("deleteItem/{FoodItemId}")]
+
+        public IActionResult deleteItem(int FoodItemId)
+        {
+            System.Console.WriteLine("delete button was click");
+
+            FoodItem getFoodItem = _context.foodItems
+            .SingleOrDefault(fc => fc.FoodItemId == FoodItemId);
+
+            _context.foodItems.Remove(getFoodItem);
+            _context.SaveChanges();
+
+
+
+            return RedirectToAction("dashboard");
+        }
 
 
         // Processing Registration and Login-------------------------------------------------
