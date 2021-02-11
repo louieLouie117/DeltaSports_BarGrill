@@ -1,4 +1,6 @@
 body{
+    display: grid;
+    grid-template-rows: 100px 57vh;
     margin: 0;
     background: whitesmoke;
 }
@@ -17,7 +19,7 @@ form{
 }
 
 header{
-    height: 55vh;
+    /* height: 55vh; */
     margin: 0 auto;
     justify-self: center;
 
@@ -46,10 +48,13 @@ header{
     background: white;
     justify-content: center;
     width: 400px;
+    height: 700px;
+    border-radius: 10px;
 
 }
 
 .login-container form input{
     font: 1em sans-serif;
     height: 40px;
+    padding: 10px;
 }

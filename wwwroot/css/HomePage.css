@@ -224,7 +224,8 @@ body {
   .item-container {
     display: grid;
     grid-template-rows: 1fr auto;
-    height: auto;
+    height: 25px;
+    overflow: hidden;
     padding: 10px;
     margin: 10px;
     margin: 0 auto;
@@ -272,7 +273,8 @@ body {
   }
   
   .item-info {
-    display: none;
+    display: grid;
+    
     max-width: 350px;
   }
   
@@ -288,13 +290,13 @@ body {
     display: none;
   }
   
-  #pizzaItem1Info,
+  /* #pizzaItem1Info,
   #sandwichItem1Info,
   #saladItem1Info,
   #burgerItem1Info,
   #appetizerItem1Info {
     display: block;
-  }
+  } */
   
   /*Event container styles-------------------------------------->*/
   

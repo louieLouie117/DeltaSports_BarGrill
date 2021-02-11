@@ -35,7 +35,7 @@
 
                     <form asp-action="CreateItem" asp-controller="Home" method="Post">
                         <input asp-for="ItemTitle" placeholder="Name:">
-                        <input asp-for="ItemPrice" placeholder="Price:" type="number">
+                        <input asp-for="ItemPrice" placeholder="Price:" type="number" step="any">
                         <input asp-for="ItemDescription" placeholder="description"></input>
                         <input asp-for="FoodCategoryId" value="@item.FoodCategoryId" type="hidden">
 
@@ -50,8 +50,7 @@
             <input type="submit" value="save item">
                 
             </form>
-   
-         
+
                     <div class="foodItem-container">
                         <ul>
 
